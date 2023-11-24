@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.scroll-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  will-change: transform;
+}
+
+:root {
+  color-scheme: only light;
+}
+
+/* Firefox */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: light;
+  }
+}
+
+/* Chrome */
+@media (forced-colors: active) {
+  :root {
+    color-scheme: light;
+  }
+}
+
+:root {
+  --color-background: #fffff8;
+  --color-text: #454545;
+  --color-primary: #13795f;
+  --color-secondary: #91c98c;
+  --color-tertiary: #febe10;
+  --color-quaternary: #dd6d48;
+  --color-fifth: #24a3e3;
+}
+
+.bg-background {
+  background-color: var(--color-background);
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+.text-secondary {
+  color: var(--color-secondary);
+}
+
+.bg-tertiary {
+  background-color: var(--color-tertiary);
+}
+
+.bg-quaternary {
+  background-color: var(--color-quaternary);
+}
+
+.text-fifth {
+  color: var(--color-fifth);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-background: #fffff8;
+    --color-text: #454545;
+    --color-primary: #13795f;
+    --color-secondary: #91c98c;
+    --color-tertiary: #febe10;
+    --color-quaternary: #dd6d48;
+    --color-fifth: #24a3e3;
+  }
+
+  .bg-background {
+    background-color: var(--color-background);
+  }
+
+  .text-primary {
+    color: var(--color-primary);
+  }
+
+  .bg-primary {
+    background-color: var(--color-primary);
+  }
+
+  .text-secondary {
+    color: var(--color-secondary);
+  }
+
+  .bg-tertiary {
+    background-color: var(--color-tertiary);
+  }
+
+  .bg-quaternary {
+    background-color: var(--color-quaternary);
+  }
+
+  .text-fifth {
+    color: var(--color-fifth);
+  }
+}

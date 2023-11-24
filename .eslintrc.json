@@ -1,0 +1,14 @@
+{
+  "extends": ["airbnb", "prettier", "next/core-web-vitals"],
+  "plugins": ["prettier"],
+  "rules": {
+    "import/extensions": ["off"],
+    "camelcase": ["off"],
+    "react/jsx-filename-extension": ["off"],
+    "no-unused-vars": "warn",
+    "spaced-comment": ["off"],
+    "no-param-reassign": ["off"],
+    "react/require-default-props": ["off"],
+    "no-underscore-dangle": ["off"]
+  }
+}
