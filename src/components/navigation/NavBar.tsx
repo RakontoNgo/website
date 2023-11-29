@@ -58,13 +58,18 @@ function NavBar({ navLinks, desktopNavLinks, socialMedia }: IProps) {
       </div>
 
       {/* MOBILE BUTTON*/}
-      <button
-        onClick={() => setIsOverlayOpen(true)}
-        className="text-primary font-josefin flex md:hidden"
-        type="button"
-      >
-        MENU
-      </button>
+      <div className="flex md:hidden items-start text-primary">
+        <div className="text-sm">
+          <LangButton />
+        </div>
+        <button
+          onClick={() => setIsOverlayOpen(true)}
+          className="text-primary ml-2 font-josefin flex "
+          type="button"
+        >
+          MENU
+        </button>
+      </div>
 
       {/* OVERLAY MENU*/}
       <NavOverlay
