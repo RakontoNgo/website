@@ -13,7 +13,7 @@ export default defineType({
     defineField({
       name: 'phoneNumber',
       title: 'PhoneNumber',
-      type: 'number',
+      type: 'string',
     }),
     defineField({
       name: 'contactPageTitleEn',

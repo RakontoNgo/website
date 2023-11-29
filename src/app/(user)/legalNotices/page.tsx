@@ -14,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
   // fetch data
   const pages = await clientFetch(getPages);
 
-  const pageContent = getPageContent(pages, '/legalMention');
+  const pageContent = getPageContent(pages, '/legalNotices');
 
   return {
     title: pageContent.title,
@@ -25,7 +25,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 async function legalMention() {
   const pages = await clientFetch(getPages);
-  const pageContent = getPageContent(pages, '/legalMention');
+  const pageContent = getPageContent(pages, '/legalNotices');
 
   return (
     <SectionContainer className=" py-24 lg:py-32">
