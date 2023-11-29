@@ -255,7 +255,7 @@ export interface IExternalsLinks extends SanityDocument {
 
 export interface IContactInfos extends SanityDocument {
   email: string;
-  phoneNumber: number;
+  phoneNumber: string;
   contactPageTitleEn: string;
   contactPageTitleFr: string;
   contactPageTextFr: string;

@@ -1,6 +1,9 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useSelectedLanguagesFromStore } from '@/store/selectedLanguages.slice';
 import { IContactInfos, ISocialMedia } from '../../../types';
 import SocialMedia from './SocialMedia';
 
@@ -10,6 +13,8 @@ interface IProps {
 }
 
 function Footer({ contactInfos, socialMedia }: IProps) {
+  const { selectedLanguage } = useSelectedLanguagesFromStore();
+
   return (
     <div className="  p-10 h-full flex  items-cente w-full lg:items-end max-w-content lg:pb-10 lg:p-10 font-josefin">
       <div className="flex flex-col lg:flex-row lg:justify-between items-center justify-center w-full space-y-10 lg:space-y-0">
@@ -23,7 +28,7 @@ function Footer({ contactInfos, socialMedia }: IProps) {
             className="text-textColor text-center w-52  font-josefin opacity-60 mt-5 lg:mt-2"
             href="/legalMention"
           >
-            Legal mentions
+            {selectedLanguage === 'Fr' ? 'Mentions Légales' : 'Legal Notices'}
           </Link>
         </div>
         <div className=" w-4/12 flex flex-col justify-center items-center lg:items-end">
