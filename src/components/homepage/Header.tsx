@@ -41,7 +41,7 @@ function Header({ data }: IProps) {
             className={`${
               selectedLanguage === 'Fr'
                 ? 'text-[55px] md:text-[5rem] leading-none lg:text-[6rem] xl:text-[7rem] mt-5'
-                : 'text-[60px] md:text-[5rem] leading-none lg:text-[7rem] xl:text-[8rem]  mt-10'
+                : 'text-[50px] md:text-[5rem] leading-none lg:text-[7rem] xl:text-[8rem]  mt-10'
             } font-francoisOne  text-primary font-bold`}
           >
             <SlideUp duration={1}>

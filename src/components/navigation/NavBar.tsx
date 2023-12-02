@@ -59,7 +59,7 @@ function NavBar({ navLinks, desktopNavLinks, socialMedia }: IProps) {
 
       {/* MOBILE BUTTON*/}
       <div className="flex md:hidden items-start text-primary">
-        <div className="text-sm">
+        <div className="text-sm mr-2">
           <LangButton />
         </div>
         <button
