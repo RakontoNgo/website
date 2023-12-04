@@ -82,8 +82,10 @@ async function OneArticle({ params: { slug } }: Props) {
         />
         <div className="flex mt-10">
           <div className="w-full lg:w-8/12">
-            <Body blockEn={article.bodyEn} blockFr={article.bodyFr} />
-            <GalleryImage data={article.gallery} />
+            {article.bodyEn && article.bodyFr && (
+              <Body blockEn={article.bodyEn} blockFr={article.bodyFr} />
+            )}
+            {article.gallery && <GalleryImage data={article.gallery} />}
             {article.partners && <Partners data={article.partners} />}
           </div>
           <ArticleSideBar article={article} allArticles={articles} />
