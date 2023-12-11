@@ -7,7 +7,7 @@ const RichTextComponents = {
     image: ({ value }: any) => (
       <div className="relative items-center w-full h-[500px]">
         <Image
-          className="object-cover object-left"
+          className="object-cover object-center"
           src={urlForImage(value)
             .fit('crop')
             .crop('focalpoint')

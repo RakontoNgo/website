@@ -31,14 +31,14 @@ function ArticlesFooter({ article, allArticles }: IProps) {
   }, [allArticles, article._id]);
 
   return (
-    <div className="w-full mb-10 px-5 font-josefin mt-10 lg:mt-20 mx-auto  uppercase font-benchnine flex flex-col lg:flex-row lg:flex-wrap lg:justify-between lg:items-center">
-      <ul className="flex space-x-2 mb-3 text-[14px] lg:text-[20px] lg:mb-0 opacity-50">
+    <div className="w-full mb-10 lg:px-5 font-josefin mt-10 lg:mt-20 mx-auto  uppercase font-benchnine flex flex-col lg:flex-row lg:flex-wrap lg:justify-between lg:items-center">
+      <ul className="flex flex-wrap mr-2 mb-3  w-full text-[14px] lg:text-[20px] lg:mb-0 opacity-50">
         {article.subjects.map((c) => (
-          <li key={c._id} className="flex">
+          <li key={c._id} className="flex mr-1">
             <BasicText
               contentEn={c.titleEn}
               contentFr={c.titleFr}
-              className="mr-2"
+              className="mr-1"
             />{' '}
             |
           </li>
