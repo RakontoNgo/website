@@ -56,7 +56,7 @@ function OneOffer({ offer, link }: { offer: IOffer; link: string }) {
             <span className="mr-2">
               {selectedLanguage === 'Fr' ? 'Date de Fin' : 'Ending Date'} :
             </span>
-            <DateFormat date={offer.startDate} />
+            <DateFormat date={offer.endDate} />
           </div>
           <div className="flex">
             <span className="mr-2">
