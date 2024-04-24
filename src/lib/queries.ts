@@ -143,3 +143,25 @@ export const getAllTeamMembers = groq`
     ...,
   } | order(orderPlacement asc)
 `;
+
+export const getAllFutureOffers = groq`
+*[_type == "offers" && endDate > now()] {
+  ...,
+  endDate,
+  files[]{
+    ...,
+    "manuscriptURL": asset->url
+  }
+}
+`;
+
+export const getAllPastOffers = groq`
+*[_type == "offers" && endDate < now()] {
+  ...,
+  endDate,
+  files[]{
+    ...,
+    "manuscriptURL": asset->url
+  }
+}
+`;
