@@ -37,7 +37,7 @@ async function Offers() {
 
   return (
     <PageContainer>
-      {offers.length === 0 ? (
+      {offers.length !== 0 ? (
         <OffersSection
           offers={offers}
           futurOffers={futurOffers}
