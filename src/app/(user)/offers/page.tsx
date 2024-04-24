@@ -35,12 +35,9 @@ async function Offers() {
   const pastOffers = await clientFetch(getAllPastOffers);
   const futurOffers = await clientFetch(getAllFutureOffers);
 
-  console.log(pastOffers.length);
-  console.log(futurOffers.length);
-
   return (
     <PageContainer>
-      {offers.length !== 0 ? (
+      {offers.length === 0 ? (
         <OffersSection
           offers={offers}
           futurOffers={futurOffers}
