@@ -16,7 +16,7 @@ function Footer({ contactInfos, socialMedia }: IProps) {
   const { selectedLanguage } = useSelectedLanguagesFromStore();
 
   return (
-    <div className="  p-10 h-full flex  items-cente w-full lg:items-end max-w-content lg:pb-10 lg:p-10 font-josefin">
+    <div className="  p-10 h-full flex  items-cente w-full lg:items-end max-w-content lg:pb-2 lg:pt-10 font-josefin">
       <div className="flex flex-col lg:flex-row lg:justify-between items-center justify-center w-full space-y-10 lg:space-y-0">
         <div className="text-xl  w-10/12 lg:w-4/12 text-textColor flex flex-col items-center lg:items-start">
           <p>{contactInfos.phoneNumber}</p>

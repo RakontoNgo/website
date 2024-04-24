@@ -39,10 +39,12 @@ function GalleryImage({ data }: { data: SanityImage[] }) {
 
   const generateImageArray = () => {
     for (let i = 0; i < data.length; i += 1) {
-      images.push({
-        src: urlForImage(data[i].asset).url(),
-        aspect_ratio: getImageApsectRatio(data[i]),
-      });
+      if (urlForImage(data[i].asset).url()) {
+        images.push({
+          src: urlForImage(data[i].asset).url(),
+          aspect_ratio: getImageApsectRatio(data[i]),
+        });
+      }
     }
   };
 

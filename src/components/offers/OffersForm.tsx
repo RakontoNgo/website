@@ -6,7 +6,6 @@
 
 import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import axios from 'axios';
-import { useSelectedLanguagesFromStore } from '@/store/selectedLanguages.slice';
 import { PhoneInput } from 'react-international-phone';
 import { IMondayClmnArray } from '../../../types';
 import TextInput from '../inputs/TextInput';
@@ -22,7 +21,6 @@ import 'react-international-phone/style.css';
 import SubmitButton from '../global/buttons/SubmitButton';
 
 function OffersForm({ mondayBoard }: { mondayBoard: any }) {
-  const { selectedLanguage } = useSelectedLanguagesFromStore();
   const apiKey = process.env.NEXT_PUBLIC_MONDAY_API_KEY as string;
   const apiUrl = process.env.NEXT_PUBLIC_MONDAY_API_URL as string;
   const [userName, setUserName] = useState('');
@@ -158,7 +156,7 @@ function OffersForm({ mondayBoard }: { mondayBoard: any }) {
         >
           <TextInput
             value={userFirstName}
-            name={selectedLanguage === 'Fr' ? 'Prénoms' : 'Firstname'}
+            name="Prénom"
             onChange={(
               e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
             ) => setUserFirstName(e.target.value)}
@@ -166,7 +164,7 @@ function OffersForm({ mondayBoard }: { mondayBoard: any }) {
           />
           <TextInput
             value={userName}
-            name={selectedLanguage === 'Fr' ? 'Noms' : 'LastName'}
+            name="Nom"
             onChange={(
               e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
             ) => setUserName(e.target.value)}
@@ -201,7 +199,7 @@ function OffersForm({ mondayBoard }: { mondayBoard: any }) {
                     required={colmn.title.split('')[0] === '*'}
                   />
                 )}
-              {colmn.type === 'color' && (
+              {colmn.type === 'status' && (
                 <SelectInput
                   name={colmn.title}
                   options={Object.values(JSON.parse(colmn.settings_str).labels)}
