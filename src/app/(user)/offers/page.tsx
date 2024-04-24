@@ -1,6 +1,11 @@
 import React, { cache } from 'react';
 import { Metadata } from 'next';
-import { getAllOffers, getPages } from '@/lib/queries';
+import {
+  getAllFutureOffers,
+  getAllOffers,
+  getAllPastOffers,
+  getPages,
+} from '@/lib/queries';
 import getPageContent from '@/utils/getPageContent';
 import PageContainer from '@/components/global/PageContainer';
 import OffersSection from '@/components/offers/OffersSection';
@@ -27,11 +32,20 @@ async function Offers() {
   const pages = await clientFetch(getPages);
   const offers = await clientFetch(getAllOffers);
   const offersPageContent = getPageContent(pages, '/offers');
+  const pastOffers = await clientFetch(getAllPastOffers);
+  const futurOffers = await clientFetch(getAllFutureOffers);
+
+  console.log(pastOffers.length);
+  console.log(futurOffers.length);
 
   return (
     <PageContainer>
       {offers.length !== 0 ? (
-        <OffersSection offers={offers} />
+        <OffersSection
+          offers={offers}
+          futurOffers={futurOffers}
+          pastOffers={pastOffers}
+        />
       ) : (
         <NoOffers content={offersPageContent.pageBuilder[0]} />
       )}

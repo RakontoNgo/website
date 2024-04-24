@@ -6,8 +6,6 @@
 
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { useSelectedLanguagesFromStore } from '@/store/selectedLanguages.slice';
-import scrollToSection from '@/utils/scrollToSection';
 import { IOffer } from '../../../types';
 import SectionContainer from '../global/SectionContainer';
 
@@ -15,11 +13,32 @@ import urlForImage from '../../../sanity/lib/image';
 import H2 from '../global/text/H2';
 import BasicText from '../global/text/BasicText';
 import LinkButton from '../global/buttons/LinkButton';
+import OffersFilter from './OffersFilter';
+import OffersIndicator from './OffersIndicator';
 
-function OffersSection({ offers }: { offers: IOffer[] }) {
+interface IProps {
+  offers: IOffer[];
+  futurOffers: IOffer[];
+  pastOffers: IOffer[];
+}
+
+function OffersSection({ offers, futurOffers, pastOffers }: IProps) {
   const [currentVisibleOfferId, setCurrentVisibleOfferId] = useState<
     string | null
   >(offers[0]._id);
+
+  const [offersFilter, setOffersFilter] = useState('All');
+  const [offersArray, setOffersArray] = useState<IOffer[]>(offers);
+
+  useEffect(() => {
+    if (offersFilter === 'pastOffers') {
+      setOffersArray(pastOffers);
+    } else if (offersFilter === 'futurOffers') {
+      setOffersArray(futurOffers);
+    } else {
+      setOffersArray(offers);
+    }
+  }, [offersFilter]);
 
   function isElementInViewport(el: HTMLElement | null) {
     if (!el) return false;
@@ -60,33 +79,22 @@ function OffersSection({ offers }: { offers: IOffer[] }) {
     return `0${index + 1} - `;
   };
 
-  const { selectedLanguage } = useSelectedLanguagesFromStore();
-
   return (
     <SectionContainer className=" w-full  pt-16">
-      <div className=" hidden fixed bottom-20 right-10 lg:flex flex-col space-y-1 font-josefin">
-        {offers.map((item, index) => {
-          return (
-            <button
-              onClick={() => scrollToSection(item._id, 50)}
-              type="button"
-              key={item._id}
-              className="text-primary font-bold"
-              style={{
-                opacity: currentVisibleOfferId === item._id ? '1' : '0.8',
-              }}
-            >
-              <div className="flex items-center">
-                <p>{ItemArrayPosition(index)}</p>
-                <p>{selectedLanguage === 'Fr' ? item.title : item.titleEn}</p>
-              </div>
-            </button>
-          );
-        })}
-      </div>
-      {offers.map((item, index) => (
+      <OffersFilter
+        offersFilter={offersFilter}
+        setOffersFilter={setOffersFilter}
+        futurOffersLength={futurOffers.length}
+        pastOffersLength={pastOffers.length}
+        offersLength={offers.length}
+      />
+      <OffersIndicator
+        offersArray={offersArray}
+        currentVisibleOfferId={currentVisibleOfferId}
+      />
+      {offersArray.map((item, index) => (
         <div
-          className="flex flex-col mb-10 lg:flex-row w-full min-h-[80vh]"
+          className="flex flex-col mb-10 lg:flex-row w-full min-h-[80vh] mt-10"
           key={item._id}
           id={item._id}
         >
