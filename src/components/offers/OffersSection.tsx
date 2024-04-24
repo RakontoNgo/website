@@ -64,7 +64,7 @@ function OffersSection({ offers }: { offers: IOffer[] }) {
 
   return (
     <SectionContainer className=" w-full  pt-16">
-      <div className=" hidden fixed bottom-10 right-10 lg:flex flex-col space-y-1 font-josefin">
+      <div className=" hidden fixed bottom-20 right-10 lg:flex flex-col space-y-1 font-josefin">
         {offers.map((item, index) => {
           return (
             <button

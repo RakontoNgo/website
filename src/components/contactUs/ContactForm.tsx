@@ -4,11 +4,13 @@
 
 import React, { FormEvent, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
+import { useSelectedLanguagesFromStore } from '@/store/selectedLanguages.slice';
 import SubmitButton from '../global/buttons/SubmitButton';
 import BasicText from '../global/text/BasicText';
 import LinkButton from '../global/buttons/LinkButton';
 
 function ContactForm() {
+  const { selectedLanguage } = useSelectedLanguagesFromStore();
   const form = useRef<HTMLFormElement | null>(null);
   const [formStatus, setFormStatus] = useState('inProgress');
 
@@ -75,7 +77,7 @@ function ContactForm() {
         <form className="flex mt-10 flex-col" ref={form} onSubmit={sendEmail}>
           <div>
             <label className="flex flex-col font-josefin">
-              Name
+              {selectedLanguage === 'Fr' ? 'Nom, prénom' : 'Name, firstname'}
               <input
                 className='"w-full border border-primary bg-transparent focus:outline-none px-3 py-2 mt-1 '
                 type="text"
