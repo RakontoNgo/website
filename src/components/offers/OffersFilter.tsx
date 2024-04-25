@@ -21,8 +21,8 @@ function OffersFilter({
   const { selectedLanguage } = useSelectedLanguagesFromStore();
   const buttonsArray = [
     {
-      buttonNameFr: `Futurs offres(${futurOffersLength})`,
-      buttonNameEn: `Futur offers(${futurOffersLength})`,
+      buttonNameFr: `Offres(${futurOffersLength})`,
+      buttonNameEn: `Offers(${futurOffersLength})`,
       buttonValue: 'futurOffers',
     },
     {
@@ -37,7 +37,7 @@ function OffersFilter({
     },
   ];
   return (
-    <div className="bg-white lg:bg-transparent justify-start lg:justify-end flex space-x-5 py-2 z-10 text-primary  fixed  px-4  md:px-10  right-0 w-full">
+    <div className="bg-background lg:bg-transparent justify-start lg:justify-end flex space-x-5 py-2 z-10 text-primary  fixed  px-4  md:px-10  right-0 w-full">
       {buttonsArray.map((item) => (
         <button
           key={item.buttonValue}

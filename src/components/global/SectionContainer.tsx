@@ -31,7 +31,7 @@ function SectionContainer({ className, children, bgImage, id }: IProps) {
         backgroundRepeat: 'no-repeat',
       }}
     >
-      <div className="max-w-content w-full px-4 lg:px-10">{children}</div>
+      <div className="max-w-content w-full px-4 md:px-10">{children}</div>
     </section>
   );
 }

@@ -6,6 +6,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { useSelectedLanguagesFromStore } from '@/store/selectedLanguages.slice';
 import { IOffer } from '../../../types';
 import SectionContainer from '../global/SectionContainer';
 
@@ -23,6 +24,7 @@ interface IProps {
 }
 
 function OffersSection({ offers, futurOffers, pastOffers }: IProps) {
+  const { selectedLanguage } = useSelectedLanguagesFromStore();
   const [currentVisibleOfferId, setCurrentVisibleOfferId] = useState<
     string | null
   >(offers[0]._id);
@@ -92,9 +94,16 @@ function OffersSection({ offers, futurOffers, pastOffers }: IProps) {
         offersArray={offersArray}
         currentVisibleOfferId={currentVisibleOfferId}
       />
+      {futurOffers.length === 0 && (
+        <p className="mt-20 lg:mt-5 font-josefin">
+          {selectedLanguage === 'Fr'
+            ? `Vous ne trouverez ci-dessous que les offres passées. De nouvelles offres seront bientôt disponibles....`
+            : 'Below you will find only past offers. New offers will be available soon....'}
+        </p>
+      )}
       {offersArray.map((item, index) => (
         <div
-          className="flex flex-col mb-10 lg:flex-row w-full min-h-[80vh] mt-10"
+          className="flex flex-col mb-10 lg:flex-row w-full min-h-[60vh] mt-5"
           key={item._id}
           id={item._id}
         >
