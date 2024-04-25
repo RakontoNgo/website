@@ -376,6 +376,7 @@ export interface IRakontoNumbers {
   titleBisEn: string;
   textImageFR: string;
   textImageEn: string;
+  image: SanityImage;
   numbers: {
     animationDuration: number;
     number: number;

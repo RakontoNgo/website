@@ -8,6 +8,7 @@ import NumberAnimation from './NumberAnimation';
 import FullWidthImage from '../global/images/FullWidthImage';
 import { IRakontoNumbers } from '../../../types';
 import H1 from '../global/text/H1';
+import urlForImage from '../../../sanity/lib/image';
 
 function RakontoNumbers({ data }: { data: IRakontoNumbers }) {
   const ref = useRef(null);
@@ -53,7 +54,7 @@ function RakontoNumbers({ data }: { data: IRakontoNumbers }) {
         title={data.textImageFR}
         titleEn={data.textImageEn}
         className="mt-10 max-h-[105rem] lg:h-[50rem]"
-        path="/woarewe.webp"
+        path={urlForImage(data.image.asset).url()}
         h1ClassName="lg:translate-y-[35%]"
         alt="unkown image"
         end={0}
