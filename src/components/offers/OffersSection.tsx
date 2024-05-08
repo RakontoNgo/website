@@ -29,7 +29,7 @@ function OffersSection({ offers, futurOffers, pastOffers }: IProps) {
     string | null
   >(offers[0]._id);
 
-  const [offersFilter, setOffersFilter] = useState('All');
+  const [offersFilter, setOffersFilter] = useState('futurOffers');
   const [offersArray, setOffersArray] = useState<IOffer[]>(offers);
 
   useEffect(() => {
