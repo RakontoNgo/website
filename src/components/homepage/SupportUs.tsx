@@ -31,7 +31,7 @@ function SupportUs({ data }: { data: IHomeSupportUs }) {
     <SectionContainer
       id="supportUs"
       className="my-32 lg:my-0"
-      bgImage="/backgroundHome/bgFooter5.png"
+      bgImage="/backgroundHome/backgroundfooter.webp"
     >
       <div
         ref={ref}
