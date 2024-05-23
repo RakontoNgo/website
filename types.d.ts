@@ -336,6 +336,7 @@ export interface IOffer extends SanityDocument {
   placesOccupied: number;
   PlacesAvailable: number;
   location: string;
+  googleFormLink: string;
 }
 
 export interface IMondayClmnArray {

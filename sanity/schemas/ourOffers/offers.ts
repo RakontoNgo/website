@@ -34,6 +34,13 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'isArtisticGrant',
+      title: 'Artistic Grant',
+      type: 'boolean',
+      initialValue: false,
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'descriptionEN',
       title: 'Description EN',
       type: 'text',
@@ -140,6 +147,11 @@ export default defineType({
       name: 'mondayArrayName',
       type: 'string',
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      title: 'Google Form Link',
+      name: 'googleFormLink',
+      type: 'string',
     }),
   ],
 

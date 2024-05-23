@@ -8,7 +8,7 @@ import { SanityImage } from '../../../types';
 import H1 from '../global/text/H1';
 import BasicText from '../global/text/BasicText';
 import urlForImage from '../../../sanity/lib/image';
-import SlideUp from '../animated/SlideUp';
+import LinkButton from '../global/buttons/LinkButton';
 
 interface IProps {
   item: {
@@ -47,7 +47,7 @@ function PresentationElement({ item, index }: IProps) {
   return (
     <div
       ref={ref}
-      className={`lg:h-[60vh]   flex  my-20 ${
+      className={`lg:h-[60vh]    flex  my-20 ${
         index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
       } items-end`}
     >
@@ -57,10 +57,7 @@ function PresentationElement({ item, index }: IProps) {
             index % 2 === 0 ? 'lg:pr-10' : 'lg:pl-10'
           } lg:justify-between`}
         >
-          <SlideUp
-            className="flex flex-col items-end lg:items-start"
-            duration={1.2}
-          >
+          <div className="flex flex-col items-end lg:items-start">
             <H1
               className={`w-full ${
                 item.color.hex === '#febe10' && 'text-tertiary'
@@ -78,7 +75,16 @@ function PresentationElement({ item, index }: IProps) {
               contentEn={item.descriptionEn}
               contentFr={item.descriptionFr}
             />
-          </SlideUp>
+            {item.nameFr === 'Formation' && (
+              <LinkButton
+                className="mt-10"
+                textEn="Artistic Grant"
+                textFr="Bourse Artistique"
+                link="/offers"
+                query="artisticGrant"
+              />
+            )}
+          </div>
 
           <div className="mt-10  h-20 w-20 flex flex-col justify-end items-end">
             <div
