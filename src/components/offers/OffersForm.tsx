@@ -121,7 +121,7 @@ function OffersForm({ mondayBoard }: { mondayBoard: any }) {
   return (
     <div className="w-full">
       {formStatus === 'validate' && (
-        <div className=" w-full  pt-16">
+        <div className=" w-full">
           <BasicText
             contentFr="Merci pour votre demande, notre équipe vous recontactera bientôt pour les étapes suivantes."
             contentEn="Thanks for your apply, our team will back to you soon for the following steps. "
@@ -135,7 +135,7 @@ function OffersForm({ mondayBoard }: { mondayBoard: any }) {
         </div>
       )}
       {formStatus === 'error' && (
-        <div className=" w-full  pt-16">
+        <div className=" w-full  pt-2">
           <BasicText
             className="text-quaternary"
             contentFr="Oupss.. une erreur est survenu. Veuillez ressayer plus tard ou contacter notre équipe pour faire un rapport de l'incident."
@@ -151,7 +151,7 @@ function OffersForm({ mondayBoard }: { mondayBoard: any }) {
       )}
       {formStatus === 'inProgress' && formInputs.length > 0 && (
         <form
-          className="w-full  py-10 lg:pr-10 flex flex-col space-y-5"
+          className="w-full  py-5 lg:pr-10 flex flex-col space-y-5"
           onSubmit={handleSubmit}
         >
           <TextInput
