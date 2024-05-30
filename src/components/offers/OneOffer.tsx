@@ -101,6 +101,8 @@ function OneOffer({ offer, link }: { offer: IOffer; link: string }) {
           <div>
             {offer.googleFormLink ? (
               <a
+                rel="noopener noreferrer"
+                target="_blank"
                 className="flex items-center mt-10 text-background justify-center bg-primary border border-primary px-4 py-3 hover:bg-transparent hover:text-primary transform duration-500  font-bold"
                 href={offer.googleFormLink}
               >
