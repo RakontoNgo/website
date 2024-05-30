@@ -71,7 +71,12 @@ async function formOffer({ params: { slug } }: Props) {
 
   return (
     <div className="w-full flex flex-col  lg:flex-row px-4 lg:px-10  max-w-content">
-      <div className="w-full lg:w-7/12 mt-10  min-h-[70vh]  flex  overflow-hidden">
+      <div className="w-full flex flex-col lg:w-7/12 mt-20  min-h-[70vh] overflow-hidden">
+        <H2
+          className="flex"
+          contentEn={offer.titleEn}
+          contentFr={offer.title}
+        />
         {findMondayBoardName ? (
           <OffersForm mondayBoard={findMondayBoardName} />
         ) : (
@@ -79,11 +84,6 @@ async function formOffer({ params: { slug } }: Props) {
         )}
       </div>
       <div className="hidden lg:flex flex-col lg:w-5/12  lg:h-[80vh] mt-20 lg:sticky lg:top-20 right-0">
-        <H2
-          className="flex"
-          contentEn={offer.titleEn}
-          contentFr={offer.title}
-        />
         <Image
           src={urlForImage(offer.mainImage.asset).url()}
           width={1200}
