@@ -9,6 +9,7 @@ import H1 from '../global/text/H1';
 import BasicText from '../global/text/BasicText';
 import urlForImage from '../../../sanity/lib/image';
 import LinkButton from '../global/buttons/LinkButton';
+import LinkButtonRed from '../global/buttons/LinkButtonRed';
 
 interface IProps {
   item: {
@@ -75,8 +76,8 @@ function PresentationElement({ item, index }: IProps) {
               contentEn={item.descriptionEn}
               contentFr={item.descriptionFr}
             />
-            {item.nameFr === 'Formation' && (
-              <LinkButton
+            {item.nameFr === 'Création' && (
+              <LinkButtonRed
                 className="mt-10"
                 textEn="Artistic Grant"
                 textFr="Bourse Artistique"
