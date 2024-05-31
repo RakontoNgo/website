@@ -7,6 +7,8 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useSelectedLanguagesFromStore } from '@/store/selectedLanguages.slice';
+
+import { useSearchParams } from 'next/navigation';
 import { IOffer } from '../../../types';
 import SectionContainer from '../global/SectionContainer';
 
@@ -21,22 +23,39 @@ interface IProps {
   offers: IOffer[];
   futurOffers: IOffer[];
   pastOffers: IOffer[];
+  artisticGrant: IOffer[];
 }
 
-function OffersSection({ offers, futurOffers, pastOffers }: IProps) {
+function OffersSection({
+  offers,
+  futurOffers,
+  pastOffers,
+  artisticGrant,
+}: IProps) {
   const { selectedLanguage } = useSelectedLanguagesFromStore();
   const [currentVisibleOfferId, setCurrentVisibleOfferId] = useState<
     string | null
   >(offers[0]._id);
+  const searchParams = useSearchParams();
 
   const [offersFilter, setOffersFilter] = useState('futurOffers');
   const [offersArray, setOffersArray] = useState<IOffer[]>(offers);
+
+  useEffect(() => {
+    const query = `${searchParams}`;
+
+    if (query === 'slug=artisticGrant') {
+      setOffersFilter('Artistic Offers');
+    }
+  }, []);
 
   useEffect(() => {
     if (offersFilter === 'pastOffers') {
       setOffersArray(pastOffers);
     } else if (offersFilter === 'futurOffers') {
       setOffersArray(futurOffers);
+    } else if (offersFilter === 'Artistic Offers') {
+      setOffersArray(artisticGrant);
     } else {
       setOffersArray(offers);
     }
@@ -89,6 +108,7 @@ function OffersSection({ offers, futurOffers, pastOffers }: IProps) {
         futurOffersLength={futurOffers.length}
         pastOffersLength={pastOffers.length}
         offersLength={offers.length}
+        artisticGrantLenght={artisticGrant.length}
       />
       <OffersIndicator
         offersArray={offersArray}
@@ -103,7 +123,7 @@ function OffersSection({ offers, futurOffers, pastOffers }: IProps) {
       )}
       {offersArray.map((item, index) => (
         <div
-          className="flex flex-col mb-10 lg:flex-row w-full min-h-[60vh] mt-5"
+          className="flex flex-col mb-10 lg:flex-row w-full min-h-[60vh] mt-10 lg:mt-5"
           key={item._id}
           id={item._id}
         >
@@ -151,6 +171,7 @@ function OffersSection({ offers, futurOffers, pastOffers }: IProps) {
                 )}
               />
             </div>
+
             <LinkButton
               className="mt-10 lg:w-6/12"
               textEn={`${

@@ -1,6 +1,7 @@
 import React, { cache } from 'react';
 import { Metadata } from 'next';
 import {
+  getAllArtisticGrant,
   getAllFutureOffers,
   getAllOffers,
   getAllPastOffers,
@@ -34,6 +35,7 @@ async function Offers() {
   const offersPageContent = getPageContent(pages, '/offers');
   const pastOffers = await clientFetch(getAllPastOffers);
   const futurOffers = await clientFetch(getAllFutureOffers);
+  const artisticGrantOffers = await clientFetch(getAllArtisticGrant);
 
   return (
     <PageContainer>
@@ -42,6 +44,7 @@ async function Offers() {
           offers={offers}
           futurOffers={futurOffers}
           pastOffers={pastOffers}
+          artisticGrant={artisticGrantOffers}
         />
       ) : (
         <NoOffers content={offersPageContent.pageBuilder[0]} />

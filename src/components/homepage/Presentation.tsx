@@ -13,7 +13,7 @@ function Presentation({ data }: IProps) {
   return (
     <SectionContainer
       id="presentation"
-      className="my-10 flex flex-col lg:py-20"
+      className="my-10 flex  flex-col lg:py-20"
     >
       {data.contentType.map((item, index) => (
         <PresentationElement item={item} index={index} key={item._key} />
