@@ -115,8 +115,9 @@ export const getOneProject = groq`
 }`;
 
 export const getAllOffers = groq`
-*[_type == "offers" && isArtisticGrant != true] {
+*[_type == "offers" && isArtisticGrant != true] | order(endDate desc) {
     ...,
+    endDate,
     files[]{
     ...,
     "manuscriptURL": asset->url
@@ -145,7 +146,7 @@ export const getAllTeamMembers = groq`
 `;
 
 export const getAllFutureOffers = groq`
-*[_type == "offers" && endDate > now() && isArtisticGrant != true] {
+*[_type == "offers" && endDate > now() && isArtisticGrant != true] | order(endDate desc) {
   ...,
   endDate,
   files[]{
@@ -156,7 +157,7 @@ export const getAllFutureOffers = groq`
 `;
 
 export const getAllPastOffers = groq`
-*[_type == "offers" && endDate < now() && isArtisticGrant != true] {
+*[_type == "offers" && endDate < now() && isArtisticGrant != true] | order(endDate desc) {
   ...,
   endDate,
   files[]{
