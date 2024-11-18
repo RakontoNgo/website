@@ -48,16 +48,16 @@ export default async function RootLayout({
   const contactInfos = await clientFetch(getContactInfos);
 
   return (
-    <html className="bg-background  " lang="en">
+    <html className="bg-background " lang="en">
       <body
-        className={`${josefin.variable} ${francoisOne.variable}  flex flex-col items-center justify-center  text-textColor `}
+        className={`${josefin.variable} ${francoisOne.variable}  flex flex-col items-center justify-center  text-textColor w-full `}
       >
         <ReduxProvider>
-          <NavBar
+          {/* <NavBar
             navLinks={navLinks}
             desktopNavLinks={desktopNavLinks}
             socialMedia={socialMedia}
-          />
+          /> */}
           {children}
           <Footer contactInfos={contactInfos[0]} socialMedia={socialMedia} />
         </ReduxProvider>

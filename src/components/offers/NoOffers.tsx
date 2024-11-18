@@ -16,7 +16,7 @@ interface IProps {
 
 function NoOffers({ content }: IProps) {
   return (
-    <div className=" pt-20 h-screen w-screen max-w-content  px-4 lg:px-10">
+    <div className=" pt-20 h-screen w-full max-w-content  px-4 lg:px-10">
       <div className="relative z-10">
         <Body blockEn={content.TextEn} blockFr={content.textFr} />
       </div>
