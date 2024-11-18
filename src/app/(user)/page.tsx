@@ -40,19 +40,19 @@ export default async function Home() {
   return (
     <PageContainer>
       <Header data={homePageContent.pageBuilder[7]} />
-      {/* <Presentation data={homePageContent.pageBuilder[0]} /> */}
+      <Presentation data={homePageContent.pageBuilder[0]} />
       {/* <OurGoals data={homePageContent.pageBuilder[1]} /> */}
-      {/* <OurProjects
+      <OurProjects
         data={homePageContent.pageBuilder[2]}
         projectsSubjects={subjects}
-      /> */}
-      {/* <LastestArticles
+      />
+      <LastestArticles
         data={homePageContent.pageBuilder[3]}
         articles={articles}
       />
       <OurOffers data={homePageContent.pageBuilder[4]} />
       <ImagesGallery data={homePageContent.pageBuilder[5]} />
-      <SupportUs data={homePageContent.pageBuilder[6]} /> */}
+      <SupportUs data={homePageContent.pageBuilder[6]} />
     </PageContainer>
   );
 }

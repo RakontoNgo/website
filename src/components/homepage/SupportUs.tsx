@@ -139,8 +139,8 @@ function SupportUs({ data }: { data: IHomeSupportUs }) {
               </div>
               <div className="lg:w-6/12 pr-5 space-y-2">
                 <H3
-                  contentEn="Et pour nous"
-                  contentFr="And for us"
+                  contentEn="And for us"
+                  contentFr="Et pour nous"
                   className="text-primary "
                 />
                 <BasicText
@@ -172,7 +172,7 @@ function SupportUs({ data }: { data: IHomeSupportUs }) {
             </div>
           </div>
 
-          <div className="w-full lg:w-5/12 xl:pl-40 lg:pl-20 pt-10 lg:pt-0">
+          <div className="w-full lg:w-5/12 xl:pl-20 lg:pl-10 pt-10 lg:pt-0">
             <div className="relative min-h-[200px] lg:min-h-[320px]">
               <Image
                 src="/GroupHelping_Mountain2.webp"
@@ -181,13 +181,14 @@ function SupportUs({ data }: { data: IHomeSupportUs }) {
                 objectFit="contain"
               />
             </div>
-            <H1
-              textColor="text-quaternary"
-              textSize="text-[40px] lg:text-[30px] xl:text-[50px]"
-              className="font-bold  text-center"
-              contentEn="Your donation, for an inspiring future accessible to all."
-              contentFr="Votre don, pour un avenir inspirant et accessible à tous."
-            />
+            <h1
+              className={`font-francoisOne  leading-none md:text-[60px] xl:text-[40px] text-center uppercase   text-quaternary `}
+            >
+              {selectedLanguage === 'Fr'
+                ? 'Votre don, pour un avenir inspirant et accessible à tous.'
+                : 'Your donation, for an inspiring future accessible to all.'}
+            </h1>
+
             <div className="relative min-h-[200px] lg:min-h-[320px]">
               <Image
                 src="/GroupHelping_Mountain.webp"
