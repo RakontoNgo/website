@@ -15,7 +15,7 @@ function LinkButton2({ link, textEn, textFr, className, query }: IProps) {
   return (
     <Link
       className={`flex  text-left items-center justify-start text-background bg-transparent hover:bg-white hover:text-primary  border border-white px-4 py-3 hover:bg-transparent  transform duration-500  font-bold ${className}`}
-      href={{ pathname: link, query: { slug: query } }}
+      href={{ pathname: link }}
     >
       <p>{`> ${selectedLanguage === 'Fr' ? textFr : textEn}`}</p>
     </Link>
