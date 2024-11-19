@@ -186,8 +186,6 @@ export interface IHomeSupportUs {
   _key: string;
   titleFr: string;
   titleEn: string;
-  TextEn: Block[];
-  textFr: Block[];
   callToAction: {
     _type: string;
     _key: string;
@@ -199,6 +197,26 @@ export interface IHomeSupportUs {
     buttonNameFr: string;
     buttonNameEn: string;
   }[];
+  donationSection: {
+    textIntroFr: string;
+    textIntroEn: string;
+    cols: [
+      {
+        titleFr: string;
+        titleEn: string;
+        textFr: Block[];
+        textEn: Block[];
+      },
+    ];
+    textOutro: {
+      textFr: string;
+      textEn: string;
+      titleFr: string;
+      titleEn: string;
+    };
+    imageTitleFr: string;
+    imageTitleEn: string;
+  };
 }
 
 export interface IHomeOurLastestArticlesSection {
