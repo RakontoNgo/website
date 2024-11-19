@@ -1,133 +1,141 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { useSelectedLanguagesFromStore } from '@/store/selectedLanguages.slice';
-import { PortableText } from '@portabletext/react';
 import Image from 'next/image';
-import { motion, useInView } from 'framer-motion';
+import { PortableText } from '@portabletext/react';
 import { IHomeSupportUs } from '../../../types';
 import H1 from '../global/text/H1';
-import RichTextComponents from '../global/text/RichTextComponent';
 import H3 from '../global/text/H3';
 import SectionContainer from '../global/SectionContainer';
-import SlideUp from '../animated/SlideUp';
-import LinkButton from '../global/buttons/LinkButton';
+import BasicText from '../global/text/BasicText';
+import LinkButton2 from '../global/buttons/LinkButton2';
+import RichTextComponents from '../global/text/RichTextComponent';
 
 function SupportUs({ data }: { data: IHomeSupportUs }) {
   const { selectedLanguage } = useSelectedLanguagesFromStore();
-  const [callToActionOpen, setCallToActionOpen] = useState<{
-    isOpen: boolean;
-    itemId: undefined | string;
-  }>({
-    isOpen: false,
-    itemId: undefined,
-  });
 
   const ref = useRef(null);
-
-  const inView = useInView(ref, { once: true });
 
   return (
     <SectionContainer
       id="supportUs"
-      className="my-32 lg:my-0"
+      className=" mt-32 lg:my-0"
       bgImage="/backgroundHome/backgroundfooter.webp"
     >
       <div
         ref={ref}
         className=" pb-32 relative w-[100%] lg:min-h-[900px] font-josefin  flex flex-col lg:pt-10"
       >
-        {inView && (
-          <SlideUp
-            duration={1.2}
-            className=" w-full  flex flex-col xl:mr-5 xl:w-5/12"
-          >
-            <H1
-              contentEn={data.titleEn}
-              contentFr={data.titleFr}
-              className="w-full"
-            />
-            <div className="text-[20px] mt-5 ">
-              <PortableText
-                value={selectedLanguage === 'Fr' ? data.textFr : data.TextEn}
-                components={RichTextComponents}
+        <H1
+          className="mb-10"
+          contentEn="SUPPORT US"
+          contentFr="NOUS SOUTENIR"
+        />
+
+        <div className="bg-primary text-white flex lg:flex-row justify-between flex-col lg:py-5  ">
+          {data.callToAction.map((item) => (
+            <div
+              key={item._key}
+              className="border border-primary space-y-5  w-full lg:w-4/12 overflow-hidden flex flex-col items-start px-10 py-10"
+            >
+              <div className=" flex justify-between items-start text-left w-full ">
+                <H3
+                  className="leading-none w-10/12 font-bold"
+                  contentEn={item.nameEn}
+                  contentFr={item.nameFr}
+                />
+              </div>
+              <div className="leading-normal">
+                <PortableText
+                  value={selectedLanguage === 'Fr' ? item.textFr : item.TextEn}
+                  components={RichTextComponents}
+                />
+              </div>
+
+              <LinkButton2
+                className="min-w-[150px]"
+                textEn={item.buttonNameEn}
+                textFr={item.buttonNameFr}
+                link={item.link}
               />
             </div>
-          </SlideUp>
-        )}
-        {inView && (
-          <div className="xl:w-6/12 xl:absolute right-0 xl:top-28">
-            {data.callToAction.map((item, index) => (
-              <SlideUp key={item._key} duration={index * 0.5 + 1}>
-                <motion.div
-                  animate={
-                    callToActionOpen.isOpen &&
-                    callToActionOpen.itemId === item._key
-                      ? { height: `100%` }
-                      : { height: `60px` }
-                  }
-                  transition={{ duration: 0.5 }}
-                  className="border border-primary overflow-hidden my-2 flex flex-col items-start"
-                >
-                  <button
-                    type="button"
-                    onClick={() => {
-                      if (
-                        callToActionOpen.isOpen === true &&
-                        callToActionOpen.itemId === item._key
-                      ) {
-                        setCallToActionOpen({
-                          isOpen: false,
-                          itemId: undefined,
-                        });
-                      } else {
-                        setCallToActionOpen({
-                          isOpen: true,
-                          itemId: item._key,
-                        });
-                      }
-                    }}
-                    className=" flex justify-between items-start text-left w-full pt-3 px-3"
-                  >
-                    <H3
-                      className="leading-none w-10/12"
-                      contentEn={item.nameEn}
-                      contentFr={item.nameFr}
-                    />
+          ))}
+        </div>
 
-                    <Image
-                      src="/downArrow.svg"
-                      className={`${
-                        callToActionOpen.isOpen &&
-                        callToActionOpen.itemId === item._key
-                          ? 'rotate-180'
-                          : 'rotate-0'
-                      } transform duration-500 ease-out`}
-                      alt="down"
-                      height={15}
-                      width={15}
-                    />
-                  </button>
-                  <div className="mt-7 leading-normal px-5">
-                    <PortableText
-                      value={
-                        selectedLanguage === 'Fr' ? item.textFr : item.TextEn
-                      }
-                      components={RichTextComponents}
-                    />
-                  </div>
+        <div className=" py-10 flex flex-col lg:flex-row">
+          <div className=" w-full lg:w-7/12 flex flex-col space-y-10">
+            <BasicText
+              className="text-primary "
+              contentEn={data.donationSection.textIntroEn}
+              contentFr={data.donationSection.textIntroFr}
+            />
 
-                  <LinkButton
-                    className="m-5"
-                    textEn={item.buttonNameEn}
-                    textFr={item.buttonNameFr}
-                    link={item.link}
+            <div className="flex flex-col space-y-5 lg:flex-row lg:space-y-0 lg:space-x-5 ">
+              {data.donationSection.cols.map((item) => (
+                <div key={item.titleEn} className="lg:w-6/12 pr-5 space-y-2">
+                  <H3
+                    className="text-primary"
+                    contentEn={item.titleEn}
+                    contentFr={item.titleFr}
                   />
-                </motion.div>
-              </SlideUp>
-            ))}
+                  <PortableText
+                    value={
+                      selectedLanguage === 'Fr' ? item.textFr : item.textEn
+                    }
+                    components={RichTextComponents}
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="text-white flex flex-col lg:flex-row relative justify-end">
+              <div className="relative lg:w-5/12 h-[180px]">
+                <Image
+                  className=" translate-x-5 lg:translate-x-10 lg:translate-y-5 w-full -translate-y-0"
+                  src="/womanLoo.webp"
+                  objectFit="contain"
+                  alt="womanloop"
+                  layout="fill"
+                />
+              </div>
+              <div className="bg-primary px-5 lg:px-10 flex flex-col items-start justify-center space-y-2 w-full py-10 lg:py-0">
+                <H3
+                  contentEn={data.donationSection.textOutro.titleEn}
+                  contentFr={data.donationSection.textOutro.titleFr}
+                />
+                <BasicText
+                  contentEn={data.donationSection.textOutro.textEn}
+                  contentFr={data.donationSection.textOutro.textFr}
+                />
+              </div>
+            </div>
           </div>
-        )}
+
+          <div className="w-full lg:w-5/12 xl:pl-20 lg:pl-10 pt-10 lg:pt-0 space-y-2">
+            <div className="relative min-h-[200px] lg:min-h-[200px]">
+              <Image
+                src="/GroupHelping_Mountain2.webp"
+                alt="Group helping mountain"
+                layout="fill"
+                objectFit="contain"
+              />
+            </div>
+            <h1 className="font-francoisOne text-[50px]  leading-none md:text-[60px] xl:text-[40px] text-center uppercase   text-quaternary max-w-[400px] mx-auto">
+              {selectedLanguage === 'Fr'
+                ? data.donationSection.imageTitleFr
+                : data.donationSection.imageTitleEn}
+            </h1>
+
+            <div className="relative min-h-[200px] lg:min-h-[200px]">
+              <Image
+                src="/GroupHelping_Mountain.webp"
+                alt="Group helping mountain"
+                layout="fill"
+                objectFit="contain"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </SectionContainer>
   );

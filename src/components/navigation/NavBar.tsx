@@ -19,7 +19,7 @@ function NavBar({ navLinks, desktopNavLinks, socialMedia }: IProps) {
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
 
   return (
-    <div className=" h-16   z-50 fixed bg-background  top-0 max-w-content  w-full px-4  md:px-10 flex justify-between items-center">
+    <div className=" h-16  z-50 fixed bg-background  top-0 max-w-content  w-full px-4  md:px-10 flex justify-between items-center">
       {/* LOGO */}
       <Link href="/">
         <Image

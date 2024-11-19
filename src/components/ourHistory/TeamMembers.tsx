@@ -74,6 +74,7 @@ function TeamMembers({ team }: IProps) {
               />
             </div>
             <BasicText
+              maxChars={100}
               contentEn={member.descriptionEn}
               contentFr={member.descriptionFr}
             />

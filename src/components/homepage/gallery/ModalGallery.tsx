@@ -15,7 +15,7 @@ interface IProps {
 
 function ModalGallery({ gallery, setIsModal, isAnimated, isModal }: IProps) {
   return (
-    <div className="fixed h-screen w-screen bg-black bg-opacity-90 top-0 left-0 z-50 flex flex-col items-center">
+    <div className="fixed h-screen w-full bg-black bg-opacity-90 top-0 left-0 z-50 flex flex-col items-center">
       <div className="w-11/12 h-[10%]  max-w-6xl flex items-center justify-end">
         <CloseButton
           background="background-none"
