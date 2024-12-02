@@ -7,6 +7,7 @@ import { useSelectedLanguagesFromStore } from '@/store/selectedLanguages.slice';
 import NavOverlay from './NavOverlay';
 import { INavLinks, ISocialMedia } from '../../../types';
 import LangButton from '../global/buttons/LangButton';
+import LinkButton from '../global/buttons/LinkButton';
 
 interface IProps {
   navLinks: INavLinks[];
@@ -32,9 +33,15 @@ function NavBar({ navLinks, desktopNavLinks, socialMedia }: IProps) {
       </Link>
 
       {/* DESKTOP NAVBAR */}
-      <div className="font-josefin hidden   md:flex items-center uppercase space-x-4  md:text-[13px] text-primary">
+      <div className="font-josefin flex items-center  space-x-4">
+        <LinkButton
+          link="/make-a-donation"
+          textEn="Make a donation"
+          textFr="Faire un don"
+        />
+
         {desktopNavLinks.map((item) => (
-          <div key={item.nameEn}>
+          <div className="" key={item.nameEn}>
             {item.nameEn === 'Explore' ? (
               <button
                 onClick={() => setIsOverlayOpen(true)}
