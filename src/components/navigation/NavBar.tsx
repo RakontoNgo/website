@@ -33,7 +33,7 @@ function NavBar({ navLinks, desktopNavLinks, socialMedia }: IProps) {
       </Link>
 
       {/* DESKTOP NAVBAR */}
-      <div className="font-josefin flex items-center  space-x-4">
+      <div className="font-josefin  items-center  space-x-4 hidden md:flex">
         <LinkButton
           link="/make-a-donation"
           textEn="Make a donation"
