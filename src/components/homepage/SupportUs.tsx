@@ -53,12 +53,27 @@ function SupportUs({ data }: { data: IHomeSupportUs }) {
                 />
               </div>
 
-              <LinkButton2
-                className="min-w-[150px]"
-                textEn={item.buttonNameEn}
-                textFr={item.buttonNameFr}
-                link={item.link}
-              />
+              {item.nameFr === 'Devenir mécène' ? (
+                <a
+                  href={item.link}
+                  className="flex  text-left items-center justify-start text-background bg-transparent hover:bg-white hover:text-primary  border border-white px-4 py-3 hover:bg-transparent  transform duration-500  font-bold min-w-[150px]"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <p>{`> ${
+                    selectedLanguage === 'Fr'
+                      ? item.buttonNameFr
+                      : item.buttonNameEn
+                  }`}</p>
+                </a>
+              ) : (
+                <LinkButton2
+                  className="min-w-[150px]"
+                  textEn={item.buttonNameEn}
+                  textFr={item.buttonNameFr}
+                  link={item.link}
+                />
+              )}
             </div>
           ))}
         </div>
