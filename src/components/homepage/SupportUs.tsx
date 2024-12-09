@@ -53,7 +53,7 @@ function SupportUs({ data }: { data: IHomeSupportUs }) {
                 />
               </div>
 
-              {item.nameFr === 'Devenir mécène' ? (
+              {item.nameFr === 'Devenez Membre' ? (
                 <a
                   href={item.link}
                   className="flex  text-left items-center justify-start text-background bg-transparent hover:bg-white hover:text-primary  border border-white px-4 py-3 hover:bg-transparent  transform duration-500  font-bold min-w-[150px]"
