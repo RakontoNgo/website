@@ -34,7 +34,7 @@ function Header({ data }: IProps) {
   };
 
   return (
-    <section className=" w-full flex lg:min-h-screen flex-col justify-between items-center  py-20 px-4 lg:px-10">
+    <section className="w-full flex min-h-screen flex-col justify-between items-center  py-20 px-4 lg:px-10">
       <div ref={ref} className="max-w-content w-full">
         {inView && (
           <div
@@ -47,25 +47,37 @@ function Header({ data }: IProps) {
             <SlideUp duration={1}>
               <h2>
                 {selectedLanguage === 'Fr'
-                  ? 'NOUS FORMONS ET INFORMONS SUR LES '
-                  : 'WE TRAIN AND INFORM'}
+                  ? 'IMAGINONS DES FUTURS'
+                  : 'ENVISIONING DESIRABLE'}
               </h2>
             </SlideUp>
             <SlideUp duration={1.5}>
               <h2 className=" w-full">
-                {selectedLanguage === 'Fr'
-                  ? 'SOLUTIONS DE DEMAIN'
-                  : `ON TOMORROW'S`}
+                {selectedLanguage === 'Fr' ? 'DÉSIRABLES' : `FUTURES`}
               </h2>
             </SlideUp>
-            <SlideUp duration={2}>
-              <h2 className=" w-full">
-                {selectedLanguage === 'Fr' ? '' : 'SOLUTIONS'}
-              </h2>
+
+            <SlideUp duration={2.5}>
+              <h3 className="text-[20px] md:text-[2rem] leading-none lg:text-[2rem] xl:text-[3rem] uppercase mt-5">
+                {selectedLanguage === 'Fr'
+                  ? `travers l'art et l'education non-formelle`
+                  : 'Through art and non-formal education'}
+              </h3>
             </SlideUp>
           </div>
         )}
       </div>
+      {inView && (
+        <div className="w-full h-full lg:hidden flex flex-col justify-center items-end">
+          <Image
+            className="animate-backgroundAnimation"
+            src="/backgroundHome/rakonto-website-banner-2.webp"
+            alt="Rakonto History"
+            width={500}
+            height={500}
+          />
+        </div>
+      )}
       <div className="max-w-content w-full">
         {inView && (
           <div className="w-full flex  justify-between items-center">

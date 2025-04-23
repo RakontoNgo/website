@@ -25,7 +25,7 @@ function SupportUs({ data }: { data: IHomeSupportUs }) {
     >
       <div
         ref={ref}
-        className=" pb-32 relative w-[100%] lg:min-h-[900px] font-josefin  flex flex-col lg:pt-10"
+        className=" pb-32 relative w-full lg:min-h-[900px] font-josefin  flex flex-col lg:pt-10"
       >
         <H1
           className="mb-10"
@@ -103,7 +103,7 @@ function SupportUs({ data }: { data: IHomeSupportUs }) {
                 </div>
               ))}
             </div>
-            <div className="text-white flex flex-col lg:flex-row relative justify-end">
+            <div className="text-white flex flex-col lg:flex-row relative justify-end  overflow-hidden">
               <div className="relative lg:w-5/12 h-[180px]">
                 <Image
                   className=" translate-x-5 lg:translate-x-10 lg:translate-y-5 w-full -translate-y-0"
