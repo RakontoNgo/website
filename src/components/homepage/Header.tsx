@@ -40,27 +40,27 @@ function Header({ data }: IProps) {
           <div
             className={`${
               selectedLanguage === 'Fr'
-                ? 'text-[55px] md:text-[5rem] leading-none lg:text-[6rem] xl:text-[7rem] mt-5'
-                : 'text-[50px] md:text-[5rem] leading-none lg:text-[7rem] xl:text-[8rem]  mt-10'
+                ? 'text-[50px] md:text-[5rem] leading-none lg:text-[6rem] xl:text-[7rem] mt-5'
+                : 'text-[50px] md:text-[5rem] leading-none lg:text-[6rem] xl:text-[7rem]  mt-5'
             } font-francoisOne  text-primary font-bold`}
           >
             <SlideUp duration={1}>
               <h2>
                 {selectedLanguage === 'Fr'
                   ? 'IMAGINONS DES FUTURS'
-                  : 'ENVISIONING DESIRABLE'}
+                  : 'ENVISIONING'}
               </h2>
             </SlideUp>
             <SlideUp duration={1.5}>
-              <h2 className=" w-full">
-                {selectedLanguage === 'Fr' ? 'DÉSIRABLES' : `FUTURES`}
+              <h2>
+                {selectedLanguage === 'Fr' ? 'DÉSIRABLES' : `DESIRABLE FUTURES`}
               </h2>
             </SlideUp>
 
             <SlideUp duration={2.5}>
               <h3 className="text-[20px] md:text-[2rem] leading-none lg:text-[2rem] xl:text-[3rem] uppercase mt-5">
                 {selectedLanguage === 'Fr'
-                  ? `travers l'art et l'education non-formelle`
+                  ? `À travers l'art et l'education non-formelle`
                   : 'Through art and non-formal education'}
               </h3>
             </SlideUp>
